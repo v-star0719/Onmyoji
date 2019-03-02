@@ -1,0 +1,7 @@
+﻿[
+    {"id":1001, "name":"姑获鸟", "configId":1001, "hp":2233, "attack":5000, "defense":0, "speed":0, "crit":0, "critDamage":0},
+    {"id":1002, "name":"兔子", "configId":1002, "hp":2233, "attack":0, "defense":0, "speed":65, "crit":0, "critDamage":0},
+    {"id":1003, "name":"茨木", "configId":1003, "hp":2233, "attack":5324, "defense":0, "speed":0, "crit":80, "critDamage":100},
+    {"id":2001, "name":"怪御魂10", "configId":1002, "hp":111, "attack":0, "defense":0, "speed":0, "crit":0, "critDamage":0},
+    {"id":2002, "name":"怪御魂11", "configId":1003, "hp":111, "attack":0, "defense":0, "speed":0, "crit":0, "critDamage":0}
+]

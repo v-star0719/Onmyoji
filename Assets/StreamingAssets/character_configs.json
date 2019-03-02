@@ -1,0 +1,5 @@
+﻿[
+    {"id":1001, "name":"姑获鸟", "attack":3300, "hp":8000, "defense":300, "speed":114, "crit":8, "critDamage":0, "skillId":100101},
+    {"id":1002, "name":"兔子", "attack":2800, "hp":8000, "defense":300, "speed":117, "crit":5, "critDamage":0, "skillId":100201},
+    {"id":1003, "name":"茨木", "attack":3400, "hp":8000, "defense":300, "speed":109, "crit":10, "critDamage":0, "skillId":100301}
+]

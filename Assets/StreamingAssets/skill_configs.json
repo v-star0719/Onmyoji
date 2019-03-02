@@ -1,0 +1,5 @@
+﻿[
+    {"id":100101, "name":"鸟姐三技能", "isAoe":false, "targetType":0, "attackTimes":3, "attackInterval":1.2, "damageRate":0.3, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0},
+    {"id":100201, "name":"茨木一拳", "isAoe":false, "targetType":0, "attackTimes":1, "attackInterval":1.2, "damageRate":3.3, "onePunch":true, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0},
+    {"id":100301, "name":"兔子辣条", "isAoe":false, "targetType":1, "attackTimes":1, "attackInterval":1.2, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0}
+]

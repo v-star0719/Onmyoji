@@ -1,0 +1,14 @@
+BuildPackages/
+Library/**
+Temp/
+Packages/
+obj/
+.vs/
+.git/
+
+*.csproj
+*.sln
+*.userprefs
+*.suo
+*.sln
+
