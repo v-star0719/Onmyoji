@@ -17,7 +17,10 @@ public class BattleManager : MonoBehaviour
 
 	public List<Characer> characers = new List<Characer>();
 
-	private int fireCount = 0;
+	public int FireCount { get; private set;}
+	public int FireRecovery { get; private set; }
+	public int UserRoundTimes { get; private set; }
+
 	private float timer;
 	private bool isRunStart;
 	private int[] shikigamis;
@@ -29,10 +32,16 @@ public class BattleManager : MonoBehaviour
 	private int monsterDeadCount = 0;
 	private int shikigamiDeadCount = 0;
 
+	public BattleManager()
+	{
+		FireRecovery = 3;
+	}
+
 	public int CurRound
 	{
 		get { return curRound; }
 	}
+
 
 	void Awake()
 	{
@@ -45,10 +54,12 @@ public class BattleManager : MonoBehaviour
 		this.shikigamis = shikigamis;
 		this.monsters = monsters;
 		ChangeState(BattleState.WaveStart);
+		FireCount = 3;
+		FireRecovery = 3;
 		curRound = 0;
 		shikigamiDeadCount = 0;
 		monsterDeadCount = 0;
-		fireCount = 0;
+		ChangeFire(0);
 	}
 
 	// Update is called once per frame
@@ -71,7 +82,22 @@ public class BattleManager : MonoBehaviour
 					isRunStart = true;
 					BattleProgress.instance.RunOnce();
 					BattleProgress.instance.RoundStart();
-					BattleProgress.instance.ArrivedCharacer.DoAttack();
+					var character = BattleProgress.instance.ArrivedCharacer;
+					character.DoAttack();
+					if (!character.isMonster)
+					{
+						UserRoundTimes++;
+						if (UserRoundTimes == 5)
+						{
+							UserRoundTimes = 0;
+							ChangeFire(FireRecovery);
+							if (FireRecovery < 5)
+							{
+								FireRecovery++;
+							}
+						}
+					}
+					EventManager.instance.FireEvent(new RoundStartEvent());
 					BuffManager.instance.RoundStart();
 					BuffManager.instance.Round();
 				}
@@ -82,8 +108,9 @@ public class BattleManager : MonoBehaviour
 					isRunStart = false;
 					BattleProgress.instance.RoundEnd();
 					BuffManager.instance.RoundEnd();
+					EventManager.instance.FireEvent(new RoundEndEvent());
 				}
-				
+
 				Update_CheckBattleResult();
 				break;
 			case BattleState.WaveEnd:
@@ -106,6 +133,10 @@ public class BattleManager : MonoBehaviour
 
 	public void ClearBattle()
 	{
+		FireCount = 0;
+		UserRoundTimes = 0;
+		FireRecovery = 0;
+		ChangeFire(0);
 		foreach (var c in characers)
 		{
 			c.Succide();
@@ -125,7 +156,7 @@ public class BattleManager : MonoBehaviour
 			}
 			CreateMonsters(monsters[curRound]);
 			BattleProgress.instance.Reset();
-			EventManager.instance.FireEvent(new RoundStartEvent());
+			EventManager.instance.FireEvent(new WaveStartEvent());
 		}
 
 		if (state == BattleState.WaveEnd)
@@ -163,6 +194,21 @@ public class BattleManager : MonoBehaviour
 		{
 			NextRound();
 		}
+	}
+
+	private void ChangeFire(int n)
+	{
+		FireCount += n;
+		if (FireCount < 0)
+		{
+			FireCount = 0;
+		}
+
+		if (FireCount > 8)
+		{
+			FireCount = 8;
+		}
+		EventManager.instance.FireEvent(new ChangeFireEvent());
 	}
 
 	public void CreateCreateshikigamis(int[] datas)

@@ -6,9 +6,12 @@ public enum EventType
 	CharacterBorn,
 	CharacterDead,
 	OnDamage,
-	RoundStart,
+	WaveStart,
 	AddBuff,
 	RemoveBuff,
+	ChangeFire,
+	RoundEnd,
+	RoundStart,
 }
 
 public class CharacterBornEvent : Event
@@ -52,11 +55,11 @@ public class DamageEvent : Event
 	}
 }
 
-public class RoundStartEvent : Event
+public class WaveStartEvent : Event
 {
-	public RoundStartEvent()
+	public WaveStartEvent()
 	{
-		id = (int)EventType.RoundStart;
+		id = (int)EventType.WaveStart;
 	}
 }
 
@@ -81,5 +84,29 @@ public class RemoveBuffEvent : Event
 		id = (int)EventType.RemoveBuff;
 		this.characer = characer;
 		this.buff = buff;
+	}
+}
+
+public class ChangeFireEvent : Event
+{
+	public ChangeFireEvent()
+	{
+		id = (int)EventType.ChangeFire;
+	}
+}
+
+public class RoundStartEvent : Event
+{
+	public RoundStartEvent()
+	{
+		id = (int)EventType.RoundStart;
+	}
+}
+
+public class RoundEndEvent : Event
+{
+	public RoundEndEvent()
+	{
+		id = (int)EventType.RoundEnd;
 	}
 }
