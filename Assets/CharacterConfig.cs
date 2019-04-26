@@ -10,7 +10,10 @@ public class CharacterConfig
 	public int crit;//百分之n
 	public int critDamage;//百分之n
 	public int speed;
-	public int skillId;
+	public int normalAttackSkillId;
+	public int skillId1;
+	public int skillId2;
+	public int passiveSkillId;
 
 	public void ReadFromJson(JsonData json)
 	{
@@ -22,6 +25,9 @@ public class CharacterConfig
 		crit = json.ReadInt("crit");
 		critDamage = json.ReadInt("critDamage");
 		speed = json.ReadInt("speed");
-		skillId = json.ReadInt("skillId");
+		normalAttackSkillId = json.ReadInt("normalAttackSkillId");
+		skillId1 = json.ReadInt("skillId1");
+		skillId2 = json.ReadInt("skillId2");
+		passiveSkillId = json.ReadInt("passiveSkillId");
 	}
 }

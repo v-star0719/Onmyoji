@@ -47,11 +47,11 @@ public class DamageNumPanel : UIPanelBase
 		DamageEvent ee = e as DamageEvent;
 
 		DamageNumItem itemPrefab = null;
-		if (ee.isHeal)
+		if (ee.damageInfo.isHeal)
 		{
 			itemPrefab = healItemPrefab;
 		}
-		else if(ee.isCrit)
+		else if(ee.damageInfo.isCrit)
 		{
 			itemPrefab = critItemPrefab;
 		}
@@ -64,7 +64,7 @@ public class DamageNumPanel : UIPanelBase
 		item.transform.parent = itemPrefab.transform.parent;
 		item.transform.localScale = Vector3.one;
 		item.gameObject.SetActive(true);
-		item.SetData(ee.receiver, (int)ee.damageValue);
+		item.SetData(ee.receiver, (int)ee.damageInfo.damage);
 		items.Add(item);
 	}
 

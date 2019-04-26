@@ -40,18 +40,14 @@ public class DamageEvent : Event
 {
 	public Characer caster;
 	public Characer receiver;
-	public float damageValue;
-	public bool isCrit;
-	public bool isHeal;
+	public DamageInfo damageInfo;
 
-	public DamageEvent(Characer caster, Characer receiver, float damage, bool isCrit, bool isHeal)
+	public DamageEvent(Characer caster, Characer receiver, DamageInfo damageInfo)
 	{
 		id = (int)EventType.OnDamage;
 		this.caster = caster;
 		this.receiver = receiver;
-		this.damageValue = damage;
-		this.isCrit = isCrit;
-		this.isHeal = isHeal;
+		this.damageInfo = damageInfo;
 	}
 }
 

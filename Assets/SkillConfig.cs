@@ -5,8 +5,9 @@ using UnityEngine;
 
 public enum TargetType
 {
-	Enemy,
-	Partener,
+	Enemy = 0,
+	Partener = 1,
+	Self = 2,
 }
 
 public class SkillConfig
@@ -15,15 +16,17 @@ public class SkillConfig
 	public string name;
 	public bool isAoe;
 	public TargetType targetType;
+	public TargetFieltType targetFieltType;
 	//public bool attackSelectedTarget;//单体攻击的情况下
 	public int attackTimes;
 	public float attackInterval;
 	public float damageRate;
-	public bool onePounch;
+	public bool onePunch;
 	public int buff1Id;
 	public int buff1Round;
 	public int buff2Id;
 	public int buff2Round;
+	public int addFire;
 
 	public void ReadFromJson(JsonData json)
 	{
@@ -31,13 +34,15 @@ public class SkillConfig
 		name = json.ReadString("name");
 		isAoe = json.ReadBoolean("isAoe");
 		targetType = (TargetType)json.ReadInt("targetType");
+		targetFieltType = (TargetFieltType)json.ReadInt("targetFieltType");
 		attackTimes = json.ReadInt("attackTimes");
 		attackInterval = json.ReadFloat("attackInterval");
 		damageRate = json.ReadFloat("damageRate");
-		onePounch = json.ReadBoolean("onePounch");
+		onePunch = json.ReadBoolean("onePunch");
 		buff1Id = json.ReadInt("buff1Id");
 		buff1Round = json.ReadInt("buff1Round");
 		buff2Id = json.ReadInt("buff2Id");
 		buff2Round = json.ReadInt("buff2Round");
+		addFire = json.ReadInt("addFire");
 	}
 }

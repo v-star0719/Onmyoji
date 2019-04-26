@@ -26,11 +26,11 @@ public class Game : MonoBehaviour
 
 	public void LoadBattle ()
 	{
-		var s = new int[] {1001, 1002, 1002, 1001};
+		var s = new int[] { 1991, 1007, 1002, 1003, 1001, 1006, };
 		var monsters = new List<int[]>();
-		monsters.Add(new int[] { 2001, 2001, 2002, 2002 });
-		monsters.Add(new int[] { 2001, 2001, 2002, 2002 });
-		monsters.Add(new int[] { 2001, 2001, 2002, 2002 });
+		monsters.Add(new int[] { 2001, 2002, 2003 });
+		monsters.Add(new int[] { 2004, 2005, 2006 });
+		monsters.Add(new int[] { 2007, 2007, 2008 });
 		BattleManager.instance.StartBattle(s, monsters);
 	}
 	

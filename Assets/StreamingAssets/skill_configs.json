@@ -1,5 +1,19 @@
 ﻿[
-    {"id":100101, "name":"鸟姐三技能", "isAoe":false, "targetType":0, "attackTimes":3, "attackInterval":1.2, "damageRate":0.3, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0},
-    {"id":100201, "name":"茨木一拳", "isAoe":false, "targetType":0, "attackTimes":1, "attackInterval":1.2, "damageRate":3.3, "onePunch":true, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0},
-    {"id":100301, "name":"兔子辣条", "isAoe":false, "targetType":1, "attackTimes":1, "attackInterval":1.2, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0}
+    {"id":100001, "name":"通用普攻", "isAoe":false, "targetType":0, "targetFieltType":1, "attackTimes":1, "attackInterval":0, "damageRate":1, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100101, "name":"姑获鸟技能", "isAoe":true, "targetType":0, "targetFieltType":0, "attackTimes":3, "attackInterval":1.2, "damageRate":0.1, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100201, "name":"兔子辣条", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":1, "attackInterval":1.2, "damageRate":0, "onePunch":false, "buff1Id":1, "buff1Round":1, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100301, "name":"茨木一拳", "isAoe":false, "targetType":1, "targetFieltType":0, "attackTimes":1, "attackInterval":1.2, "damageRate":3.3, "onePunch":true, "buff1Id":3, "buff1Round":1, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100401, "name":"食发鬼", "isAoe":true, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0.99, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100501, "name":"大舅", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100601, "name":"妖刀姬", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100701, "name":"打火机", "isAoe":false, "targetType":2, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100710, "name":"打火机被动", "isAoe":false, "targetType":2, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":2},
+    {"id":100801, "name":"二口女", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":100901, "name":"觉", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":101001, "name":"莹草", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":101101, "name":"椒图", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":101201, "name":"青行灯", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":101301, "name":"酒吞", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":101401, "name":"大天狗", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0},
+    {"id":200901, "name":"大蛇boss", "isAoe":false, "targetType":0, "targetFieltType":0, "attackTimes":0, "attackInterval":0, "damageRate":0, "onePunch":false, "buff1Id":0, "buff1Round":0, "buff2Id":0, "buff2Round":0, "addFire":0}
 ]

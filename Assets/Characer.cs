@@ -12,9 +12,16 @@ public class Characer : MonoBehaviour
 	public float speed;
 	public float attack;
 	private float hp;
-	private float maxHp;
+	public float maxHp;
+	public float crit;
+	public float critDamge;
+	public float defense;
+	public CharacterSpecialType special;
+
 
 	private Skill skill;
+	private Skill normalAttackSkill;
+	private PassiveSkill passiveSkill;
 
 	private new Animation animation;
 
@@ -59,29 +66,49 @@ public class Characer : MonoBehaviour
 		isMonster = monster;
 		speed = d.speed + config.speed;
 		attack = d.attack + config.attack;
+		crit = d.crit + config.crit;
+		critDamge = (d.critDamage + config.critDamage) / 100f;
+		defense = config.defense;
 		hp = d.hp + config.hp;
+		special = d.specialType;
 		maxHp = hp;
 
-		skill = SkillManager.instance.CreateSkill(config.skillId, this);
+		if (config.skillId1 > 0)
+		{
+			skill = SkillManager.instance.CreateSkill(config.skillId1, this);
+		}
+		if (config.passiveSkillId > 0)
+		{
+			passiveSkill = PassiveSkillManager.instance.CreateSkill(config.passiveSkillId, this);
+		}
+		normalAttackSkill = SkillManager.instance.CreateSkill(config.normalAttackSkillId, this);
+
 		animation = GetComponentInChildren<Animation>();
 	}
 
 	public void DoAttack()
 	{
-		skill.Cast(CharacerSearch.SearchTarget(this, TargetFieltType.HpPercentLowest)[0]);
+		if (skill != null)
+		{
+			skill.Cast(CharacerSearch.SearchTarget(this, TargetType.Enemy, TargetFieltType.HpPercentLowest)[0]);
+		}
+		else
+		{
+			
+		}
 		animation.Play("attack");
 	}
 	
-	public float BeAttacked(float damage)
+	public float BeAttacked(DamageInfo damageInfo)
 	{
 		var orgHp = hp;
-		hp -= damage;
+		hp -= damageInfo.damage;
 		if (hp < 0)
 		{
 			hp = 0;
 		}
 
-		EventManager.instance.FireEvent(new DamageEvent(null, this, damage, false, false));
+		EventManager.instance.FireEvent(new DamageEvent(null, this, damageInfo));
 		animation.Play("hit");
 
 		if(hp <= 0)

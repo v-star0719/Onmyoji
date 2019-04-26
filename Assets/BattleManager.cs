@@ -41,8 +41,7 @@ public class BattleManager : MonoBehaviour
 	{
 		get { return curRound; }
 	}
-
-
+	
 	void Awake()
 	{
 		instance = this;
@@ -53,12 +52,12 @@ public class BattleManager : MonoBehaviour
 	{
 		this.shikigamis = shikigamis;
 		this.monsters = monsters;
-		ChangeState(BattleState.WaveStart);
 		FireCount = 3;
 		FireRecovery = 3;
 		curRound = 0;
 		shikigamiDeadCount = 0;
 		monsterDeadCount = 0;
+		ChangeState(BattleState.WaveStart);
 		ChangeFire(0);
 	}
 
@@ -141,6 +140,8 @@ public class BattleManager : MonoBehaviour
 		{
 			c.Succide();
 		}
+		SkillManager.instance.ClearAll();
+		PassiveSkillManager.instance.ClearAll();
 	}
 
 	private void ChangeState(BattleState state)
@@ -149,6 +150,7 @@ public class BattleManager : MonoBehaviour
 		timer = 0f;
 		if (state == BattleState.WaveStart)
 		{
+			isRunStart = false;
 			monsterDeadCount = 0;
 			if (curRound == 0)
 			{
@@ -196,7 +198,7 @@ public class BattleManager : MonoBehaviour
 		}
 	}
 
-	private void ChangeFire(int n)
+	public void ChangeFire(int n)
 	{
 		FireCount += n;
 		if (FireCount < 0)
@@ -216,7 +218,7 @@ public class BattleManager : MonoBehaviour
 		for (int i = 0; i < datas.Length; i++)
 		{
 			var c = ChreateCharacter(datas[i], false);
-			c.transform.position = Stage.instance.GetshikigamiPos(datas.Length, i + 1);
+			c.transform.position = Stage.instance.GetshikigamiPos(datas.Length, i);
 			c.transform.localRotation = Quaternion.LookRotation(Vector3.forward);
 		}
 	}
@@ -226,7 +228,7 @@ public class BattleManager : MonoBehaviour
 		for(int i = 0; i < datas.Length; i++)
 		{
 			var c = ChreateCharacter(datas[i], true);
-			c.transform.position = Stage.instance.GetMonsterPos(datas.Length, i + 1);
+			c.transform.position = Stage.instance.GetMonsterPos(datas.Length, i);
 			c.transform.localRotation = Quaternion.LookRotation(Vector3.back);
 		}
 	}

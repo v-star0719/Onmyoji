@@ -68,7 +68,11 @@ public class Stage : MonoBehaviour
 
 	public Vector3 GetshikigamiPos(int formationSize, int index)
 	{
-		float angle = 180f / (formationSize + 1) * Mathf.Deg2Rad;
+		if (index == 0)
+		{
+			return playerPos;
+		}
+		float angle = 180f / formationSize * Mathf.Deg2Rad;
 		Vector3 v = playerPos;
 		v.z += radius * Mathf.Sin(angle * index);
 		v.x += radius * Mathf.Cos(angle * index);
@@ -77,7 +81,11 @@ public class Stage : MonoBehaviour
 
 	public Vector3 GetMonsterPos(int formationSize, int index)
 	{
-		float angle = -180f / (formationSize + 1) * Mathf.Deg2Rad;
+		if(index == 0)
+		{
+			return bossPos;
+		}
+		float angle = -180f / formationSize * Mathf.Deg2Rad;
 		Vector3 v = bossPos;
 		v.z += radius * Mathf.Sin(angle * index);
 		v.x += radius * Mathf.Cos(angle * index);

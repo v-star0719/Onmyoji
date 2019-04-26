@@ -1,4 +1,5 @@
 ﻿[
-    {"id":1, "name":"行动条增加30%", "effectType":0, "addAttack":0, "addSpeed":0, "pullUp":30, "pushDown":0},
-    {"id":2, "name":"攻击增加30%", "effectType":0, "addAttack":30, "addSpeed":0, "pullUp":0, "pushDown":0}
+    {"id":1, "name":"行动条增加30%", "effectType":3, "addAttack":0, "addSpeed":0, "pullUp":30, "pushDown":0},
+    {"id":2, "name":"攻击增加30%", "effectType":1, "addAttack":30, "addSpeed":0, "pullUp":0, "pushDown":0},
+    {"id":3, "name":"行动条推后30%", "effectType":4, "addAttack":0, "addSpeed":0, "pullUp":0, "pushDown":30}
 ]

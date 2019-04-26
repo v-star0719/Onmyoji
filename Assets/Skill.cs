@@ -12,6 +12,8 @@ public class Skill
 	private float attackTimer;
 	private Characer target;
 
+	private float overflowDamage = 0;
+
 	public void Init(Characer c, SkillConfig config)
 	{
 		caster = c;
@@ -32,7 +34,7 @@ public class Skill
 			List<Characer> targets = new List<Characer>();
 			if (config.isAoe)
 			{
-				targets = CharacerSearch.SearchTarget(caster, TargetFieltType.None);
+				targets = CharacerSearch.SearchTarget(caster, config.targetType, TargetFieltType.None);
 			}
 			else
 			{
@@ -41,7 +43,7 @@ public class Skill
 			
 			foreach(var t in targets)
 			{
-				DoDamage(t);
+				DoAttack(t);
 			}
 
 			attackTimes++;
@@ -51,6 +53,19 @@ public class Skill
 		if (attackTimes >= maxTimes)
 		{
 			isCasted = false;
+
+			if(config.onePunch)
+			{
+				if(overflowDamage > 1)
+				{
+					var targets = CharacerSearch.SearchTarget(caster, TargetType.Enemy, TargetFieltType.None);
+					foreach(var t in targets)
+					{
+						var damageInfo = DamageUtil.CalculateDamage(caster, t, overflowDamage);
+						t.BeAttacked(damageInfo);
+					}
+				}
+			}
 		}
 	}
 
@@ -59,6 +74,7 @@ public class Skill
 		isCasted = true;
 		attackTimes = 0;
 		attackTimer = -1;//第一次立即执行
+		overflowDamage = 0;
 		this.target = target;
 
 		if (config.buff1Id > 0)
@@ -69,28 +85,35 @@ public class Skill
 		{
 			BuffManager.instance.AddBuff(config.buff2Id, caster, target, config.buff2Round);
 		}
+
+		if (config.addFire > 0)
+		{
+			BattleManager.instance.ChangeFire(config.addFire);
+		}
 	}
 
-	public void DoDamage(Characer receiver)
+	public void DoAttack(Characer receiver)
 	{
-		float d = config.damageRate * caster.attack;
-		float damage = receiver.BeAttacked(d);
+		var d = DamageUtil.CalculateDamage(caster, receiver, this);
+		float hpChange = receiver.BeAttacked(d);
+		overflowDamage += d.damage - hpChange;
 
-		if (config.onePounch)
+		if (caster.special == CharacterSpecialType.RealDamage)
 		{
-			float overflow = d - damage;
-			if (d - damage > 1)
+			float damage = caster.attack * 1.2f;
+			float max = receiver.maxHp * 0.1f;
+			if (damage > max)
 			{
-				var targets = CharacerSearch.SearchTarget(caster, TargetFieltType.None);
-				foreach (var t in targets)
-				{
-					if (t != receiver)
-					{
-						t.BeAttacked(overflow);
-					}
-				}
+				damage = max;
 			}
+			DamageInfo info = new DamageInfo();
+			info.damage = damage;
+			receiver.BeAttacked(info);
 		}
+	}
 
+	public void Stop()
+	{
+		isCasted = false;
 	}
 }

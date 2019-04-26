@@ -46,4 +46,13 @@ public class SkillManager : MonoBehaviour
 		skills.Add(s);
 		return s;
 	}
+
+	public void ClearAll()
+	{
+		foreach (var skill in skills)
+		{
+			skill.Stop();
+		}
+		skills.Clear();
+	}
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public enum CharacterSpecialType
 {
-	HighPercentHpDamageAdd, //破势
-	LowerPercentHpDamageAdd,//心眼
-	RealDamage,//针女
-	IgnoreDefense,//网切
+	HighPercentHpDamageAdd = 1, //破势
+	LowerPercentHpDamageAdd = 2,//心眼
+	RealDamage = 3,//针女
+	IgnoreDefense = 4,//网切
 }
 
 public class CharacterData
@@ -21,6 +21,7 @@ public class CharacterData
 	public int crit;//百分之几
 	public int critDamage;//百分之几
 	public int speed;
+	public int defense;
 	public CharacterSpecialType specialType;
 
 	public void ReadFromJson(JsonData json)
@@ -33,6 +34,7 @@ public class CharacterData
 		crit = json.ReadInt("crit");
 		critDamage = json.ReadInt("critDamage");
 		speed = json.ReadInt("speed");
+		defense = json.ReadInt("defense");
 		specialType = (CharacterSpecialType)json.ReadInt("specialType");
 	}
 }

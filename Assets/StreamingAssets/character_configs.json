@@ -1,5 +1,21 @@
 ﻿[
-    {"id":1001, "name":"姑获鸟", "attack":3300, "hp":8000, "defense":300, "speed":114, "crit":8, "critDamage":0, "skillId":100101},
-    {"id":1002, "name":"兔子", "attack":2800, "hp":8000, "defense":300, "speed":117, "crit":5, "critDamage":0, "skillId":100201},
-    {"id":1003, "name":"茨木", "attack":3400, "hp":8000, "defense":300, "speed":109, "crit":10, "critDamage":0, "skillId":100301}
+    {"id":1001, "name":"姑获鸟", "attack":3082, "hp":10823, "defense":397, "speed":113, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100101, "skillId2":0},
+    {"id":1002, "name":"兔子", "attack":2894, "hp":10709, "defense":432, "speed":115, "crit":8, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1003, "name":"茨木", "attack":3216, "hp":10253, "defense":397, "speed":112, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1004, "name":"食发鬼", "attack":2894, "hp":10709, "defense":432, "speed":118, "crit":8, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1005, "name":"大舅", "attack":3350, "hp":12532, "defense":352, "speed":110, "crit":10, "critDamage":160, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1006, "name":"妖刀姬", "attack":3296, "hp":10025, "defense":396, "speed":111, "crit":12, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1007, "name":"打火机", "attack":2331, "hp":12418, "defense":458, "speed":102, "crit":8, "critDamage":150, "passiveSkillId":100710, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1008, "name":"二口女", "attack":2626, "hp":11506, "defense":445, "speed":116, "crit":5, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1009, "name":"觉", "attack":2559, "hp":11620, "defense":445, "speed":108, "crit":5, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1010, "name":"莹草", "attack":2680, "hp":11393, "defense":441, "speed":103, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1011, "name":"椒图", "attack":2304, "hp":12304, "defense":467, "speed":117, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1012, "name":"青行灯", "attack":2438, "hp":11620, "defense":471, "speed":119, "crit":8, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1013, "name":"酒吞", "attack":3135, "hp":11165, "defense":374, "speed":113, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100301, "skillId2":0},
+    {"id":1014, "name":"大天狗", "attack":3135, "hp":10025, "defense":418, "speed":110, "crit":10, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":100201, "skillId2":0},
+    {"id":1991, "name":"晴明", "attack":3256, "hp":13847, "defense":536, "speed":128, "crit":0, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":0, "skillId2":0},
+    {"id":1992, "name":"神乐", "attack":3256, "hp":13847, "defense":536, "speed":128, "crit":0, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":0, "skillId2":0},
+    {"id":1993, "name":"源博雅", "attack":3256, "hp":13847, "defense":536, "speed":128, "crit":0, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":0, "skillId2":0},
+    {"id":1994, "name":"八百", "attack":3256, "hp":13847, "defense":536, "speed":128, "crit":0, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":0, "skillId2":0},
+    {"id":2999, "name":"大蛇boss", "attack":0, "hp":0, "defense":0, "speed":100, "crit":0, "critDamage":150, "passiveSkillId":0, "normalAttackSkillId":100001, "skillId1":299901, "skillId2":0}
 ]

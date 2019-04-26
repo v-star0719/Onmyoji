@@ -4,15 +4,20 @@ using System.Collections.Generic;
 
 public enum TargetFieltType
 {
-	None,
-	HpPercentLowest,
+	None = 0,
+	HpPercentLowest = 1,
 }
 
 public class CharacerSearch
 {
-	public static List<Characer> SearchTarget(Characer characer, TargetFieltType fieltType)
+	public static List<Characer> SearchTarget(Characer characer, TargetType targetType, TargetFieltType fieltType)
 	{
 		List<Characer> targets = new List<Characer>();
+		if(targetType == TargetType.Self)
+		{
+			targets.Add(characer);
+			return targets;
+		}
 
 		var list = BattleManager.instance.characers;
 		foreach(var c in list)

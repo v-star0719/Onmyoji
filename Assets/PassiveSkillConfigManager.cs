@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using LitJson;
 using UnityEngine;
 
-public class BuffConfigManager : MonoBehaviour
+class PassiveSkillConfigManager : MonoBehaviour
 {
-	public static BuffConfigManager instance;
-	public List<BuffConfig> configs = new List<BuffConfig>();
+	public static PassiveSkillConfigManager instance;
+	public List<PassiveSkillConfig> configs = new List<PassiveSkillConfig>();
 
 	void Awake()
 	{
 		instance = this;
 		LoadFromNative();
 	}
+
 	// Use this for initialization
 	void Start()
 	{
@@ -26,7 +26,7 @@ public class BuffConfigManager : MonoBehaviour
 
 	}
 
-	public BuffConfig Get(int id)
+	public PassiveSkillConfig Get(int id)
 	{
 		foreach(var s in configs)
 		{
@@ -36,19 +36,19 @@ public class BuffConfigManager : MonoBehaviour
 			}
 		}
 
+		Debug.LogError("PassiveSkillConfig not found " + id);
 		return null;
 	}
 
 	private void LoadFromNative()
 	{
-		string path = Application.streamingAssetsPath + "/buff_configs.json";
+		string path = Application.streamingAssetsPath + "/passive_skill_configs.json";
 		var jsonData = JsonMapper.ToObject(File.ReadAllText(path));
 		for(var i = 0; i < jsonData.Count; i++)
 		{
-			BuffConfig d = new BuffConfig();
+			PassiveSkillConfig d = new PassiveSkillConfig();
 			d.ReadFromJson(jsonData[i]);
 			configs.Add(d);
 		}
 	}
 }
-

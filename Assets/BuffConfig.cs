@@ -6,10 +6,10 @@ using UnityEngine;
 public enum BuffEffectType
 {
     None,
-    AddAttack,
-    AddSpeed,
-    PullUp,
-    PushDown,
+    AddAttack = 1,
+    AddSpeed = 2,
+    PullUp = 3,
+    PushDown = 4,
 }
 
 public class BuffConfig
